@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ironvale Coal & Minerals | Reliable Coal Supply & Mining Solutions</title>
+<meta name="description" content="Ironvale Coal & Minerals — premium coal mining, processing, transportation and industrial coal supply. 20+ years of safe, reliable, on-time delivery.">
+
+<!-- ================================================================
+     FAVICON (inline SVG, no external file needed)
+================================================================= -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230A0B0D'/%3E%3Cpath d='M20 68 L38 32 L50 54 L62 26 L80 68 Z' fill='%23C9974C'/%3E%3C/svg%3E">
+
+<!-- ================================================================
+     FONTS  (Oswald = industrial display face, Inter = body,
+     JetBrains Mono = data / stat readouts)
+================================================================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome icon set -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+/* =====================================================================
+   1. DESIGN TOKENS  — edit these to re-skin the whole site
+===================================================================== */
+:root{
+  --bg-primary:#0A0B0D;
+  --bg-secondary:#14161A;
+  --bg-tertiary:#1B1E23;
+  --bg-elevated:#20242A;
+
+  --gold:#C9974C;
+  --gold-bright:#E8B85C;
+  --gold-dim:rgba(201,151,76,.16);
+  --gold-line:rgba(201,151,76,.28);
+
+  --text-primary:#F3F1EC;
+  --text-secondary:#9EA2A7;
+  --text-muted:#6C7075;
+
+  --success:#4FAE7D;
+  --danger:#D9776C;
+
+  --ff-display:'Oswald',sans-serif;
+  --ff-body:'Inter',sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+
+  --radius-sm:3px;
+  --radius-md:6px;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --dur-fast:.2s;
+  --dur:.45s;
+
+  --container:1240px;
+}
+
+/* =====================================================================
+   2. RESET & BASE
+===================================================================== */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--ff-body);
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+input,textarea,select{ font-family:inherit; font-size:1rem; }
+h1,h2,h3,h4{ font-family:var(--ff-display); line-height:1.15; letter-spacing:.01em; }
+
+:focus-visible{
+  outline:2px solid var(--gold-bright);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+.skip-link{
+  position:absolute; left:-999px; top:0;
+  background:var(--gold); color:#111; padding:10px 18px; z-index:9999;
+  font-weight:600; border-radius:0 0 6px 0;
+}
+.skip-link:focus{ left:0; }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* =====================================================================
+   3. TYPOGRAPHY UTILITIES
+===================================================================== */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--ff-mono);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:'';
+  width:26px; height:1px; background:var(--gold);
+}
+.section-title{
+  font-size:clamp(1.7rem,3.2vw,2.6rem);
+  font-weight:700;
+  text-transform:uppercase;
+  color:var(--text-primary);
+}
+.section-title em{
+  font-style:normal;
+  color:var(--gold-bright);
+}
+.section-lede{
+  color:var(--text-secondary);
+  max-width:560px;
+  margin-top:14px;
+  font-size:1.02rem;
+}
+.section-head{ margin-bottom:52px; }
+.section-head.center{ text-align:center; margin-left:auto; margin-right:auto; }
+.section-head.center .section-lede{ margin-left:auto; margin-right:auto; }
+
+/* seam divider — signature motif: a hairline gold "seam" between sections */
+.seam{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold-line) 20%, var(--gold-line) 80%, transparent);
+}
+.seam::after{
+  content:'';
+  position:absolute; top:-2.5px; left:50%; transform:translateX(-50%);
+  width:6px; height:6px; background:var(--gold);
+  border-radius:50%;
+  box-shadow:0 0 12px 2px var(--gold);
+}
+
+/* =====================================================================
+   4. BUTTONS
+===================================================================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 30px;
+  font-weight:600; font-size:.92rem;
+  letter-spacing:.03em; text-transform:uppercase;
+  border-radius:var(--radius-sm);
+  transition:transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  white-space:nowrap;
+}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  color:#181103;
+  box-shadow:0 8px 24px -8px rgba(201,151,76,.55);
+}
+.btn-gold:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(201,151,76,.7); }
+.btn-outline{
+  background:transparent;
+  color:var(--text-primary);
+  border:1px solid rgba(255,255,255,.22);
+}
+.btn-outline:hover{ border-color:var(--gold); color:var(--gold-bright); transform:translateY(-2px); }
+.btn-sm{ padding:10px 20px; font-size:.78rem; }
+.btn-block{ width:100%; }
+
+/* =====================================================================
+   5. NAVIGATION
+===================================================================== */
+.navbar{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:18px 0;
+  transition:padding var(--dur) var(--ease), background var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.navbar::before{
+  content:'';
+  position:absolute; inset:0;
+  background:rgba(10,11,13,.55);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid transparent;
+  transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+  z-index:-1;
+}
+.navbar.scrolled{ padding:10px 0; }
+.navbar.scrolled::before{
+  background:rgba(10,11,13,.86);
+  border-bottom-color:var(--gold-line);
+}
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{
+  width:38px; height:38px; flex-shrink:0;
+}
+.brand-text{ display:flex; flex-direction:column; line-height:1.05; }
+.brand-text .name{
+  font-family:var(--ff-display); font-weight:700; font-size:1.15rem;
+  letter-spacing:.03em; color:var(--text-primary);
+}
+.brand-text .name span{ color:var(--gold); }
+.brand-text .sub{
+  font-family:var(--ff-mono); font-size:.6rem; letter-spacing:.2em;
+  color:var(--text-muted); text-transform:uppercase;
+}
+
+.nav-links{ display:flex; align-items:center; gap:34px; }
+.nav-links a{
+  font-size:.88rem; font-weight:500; color:var(--text-secondary);
+  position:relative; padding:6px 0;
+  transition:color var(--dur-fast) var(--ease);
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
+  background:var(--gold); transition:width var(--dur-fast) var(--ease);
+}
+.nav-links a:hover{ color:var(--text-primary); }
+.nav-links a:hover::after{ width:100%; }
+
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+
+.hamburger{
+  display:none;
+  width:40px; height:40px;
+  position:relative;
+  z-index:1100;
+}
+.hamburger span{
+  position:absolute; left:8px; right:8px; height:2px; background:var(--text-primary);
+  transition:transform var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.hamburger span:nth-child(1){ top:14px; }
+.hamburger span:nth-child(2){ top:20px; }
+.hamburger span:nth-child(3){ top:26px; }
+.hamburger[aria-expanded="true"] span{ background:var(--gold-bright); }
+.hamburger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.hamburger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* =====================================================================
+   6. HERO
+===================================================================== */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex; align-items:center;
+  padding-top:110px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0; z-index:-2;
+  background-image:
+    linear-gradient(180deg, rgba(8,9,10,.55) 0%, rgba(8,9,10,.78) 55%, var(--bg-primary) 100%),
+    linear-gradient(90deg, rgba(6,7,8,.92) 0%, rgba(6,7,8,.35) 65%),
+    url('https://images.unsplash.com/photo-1649822825476-70af6471d30f?auto=format&fit=crop&w=2200&q=80');
+  background-size:cover; background-position:center;
+  will-change:transform;
+}
+.hero-seam{
+  position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.55;
+}
+.hero-content{
+  position:relative;
+  max-width:720px;
+}
+.hero-content .eyebrow{ opacity:0; transform:translateY(16px); animation:riseIn .7s var(--ease) .1s forwards; }
+.hero-title{
+  font-size:clamp(2.3rem,5.4vw,4.2rem);
+  font-weight:700;
+  text-transform:uppercase;
+  color:var(--text-primary);
+  opacity:0; transform:translateY(20px); animation:riseIn .8s var(--ease) .25s forwards;
+}
+.hero-title em{ font-style:normal; color:var(--gold-bright); }
+.hero-desc{
+  margin-top:22px;
+  font-size:1.08rem;
+  color:var(--text-secondary);
+  max-width:540px;
+  opacity:0; transform:translateY(20px); animation:riseIn .8s var(--ease) .4s forwards;
+}
+.hero-actions{
+  margin-top:36px;
+  display:flex; flex-wrap:wrap; gap:16px;
+  opacity:0; transform:translateY(20px); animation:riseIn .8s var(--ease) .55s forwards;
+}
+.hero-meta{
+  margin-top:56px;
+  display:flex; gap:36px; flex-wrap:wrap;
+  opacity:0; transform:translateY(20px); animation:riseIn .8s var(--ease) .7s forwards;
+}
+.hero-meta div{ display:flex; flex-direction:column; }
+.hero-meta strong{ font-family:var(--ff-mono); font-size:1.4rem; color:var(--gold-bright); }
+.hero-meta span{ font-size:.76rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-top:2px; }
+
+.scroll-cue{
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  color:var(--text-muted); font-family:var(--ff-mono); font-size:.65rem; letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.scroll-cue .line{
+  width:1px; height:34px; background:linear-gradient(var(--gold),transparent);
+  animation:scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes riseIn{ to{ opacity:1; transform:translateY(0); } }
+@keyframes scrollLine{
+  0%{ transform:scaleY(0); transform-origin:top; }
+  50%{ transform:scaleY(1); transform-origin:top; }
+  50.01%{ transform-origin:bottom; }
+  100%{ transform:scaleY(0); transform-origin:bottom; }
+}
+
+/* =====================================================================
+   7. GENERIC SECTION / REVEAL
+===================================================================== */
+section{ position:relative; padding:104px 0; }
+.bg-alt{ background:var(--bg-secondary); }
+
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+.reveal-delay-1{ transition-delay:.08s; }
+.reveal-delay-2{ transition-delay:.16s; }
+.reveal-delay-3{ transition-delay:.24s; }
+.reveal-delay-4{ transition-delay:.32s; }
+
+/* =====================================================================
+   8. ABOUT
+===================================================================== */
+.about-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:64px;
+  align-items:center;
+}
+.about-media{ position:relative; }
+.about-media img{
+  width:100%; height:460px; object-fit:cover;
+  border-radius:var(--radius-md);
+  filter:saturate(.92) contrast(1.05);
+}
+.badge-float{
+  position:absolute; left:-24px; bottom:-24px;
+  background:var(--bg-elevated);
+  border:1px solid var(--gold-line);
+  padding:20px 26px;
+  border-radius:var(--radius-md);
+  box-shadow:0 20px 40px -16px rgba(0,0,0,.6);
+}
+.badge-float strong{ display:block; font-family:var(--ff-mono); font-size:1.8rem; color:var(--gold-bright); }
+.badge-float span{ font-size:.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:.06em; }
+
+.about-text p{ color:var(--text-secondary); margin-top:16px; }
+.feature-grid{
+  margin-top:38px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.feature-card{
+  background:var(--bg-tertiary);
+  border:1px solid rgba(255,255,255,.06);
+  padding:22px;
+  border-radius:var(--radius-md);
+  transition:transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.feature-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold-line);
+  background:var(--bg-elevated);
+}
+.feature-card i{ color:var(--gold); font-size:1.3rem; margin-bottom:12px; }
+.feature-card h4{ font-size:.98rem; font-family:var(--ff-body); font-weight:600; }
+.feature-card p{ font-size:.85rem; color:var(--text-secondary); margin-top:6px; }
+
+/* =====================================================================
+   9. SERVICES
+===================================================================== */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.service-card{
+  position:relative;
+  background:var(--bg-tertiary);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius-md);
+  padding:32px 26px;
+  overflow:hidden;
+  transition:transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.service-card::before{
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(circle at 85% -10%, var(--gold-dim), transparent 60%);
+  opacity:0; transition:opacity var(--dur) var(--ease);
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold-line);
+  box-shadow:0 24px 48px -20px rgba(0,0,0,.65);
+}
+.service-card:hover::before{ opacity:1; }
+.service-index{
+  font-family:var(--ff-mono); font-size:.72rem; color:var(--text-muted);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+.service-icon{
+  width:52px; height:52px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:var(--radius-sm);
+  background:var(--gold-dim);
+  color:var(--gold-bright);
+  font-size:1.3rem;
+  margin:18px 0 20px;
+}
+.service-card h3{ font-family:var(--ff-body); font-weight:600; font-size:1.08rem; }
+.service-card p{ color:var(--text-secondary); font-size:.92rem; margin-top:10px; }
+
+/* =====================================================================
+   10. STATS
+===================================================================== */
+.stats-section{
+  position:relative;
+  background-image:
+    linear-gradient(180deg, rgba(8,9,10,.86), rgba(8,9,10,.92)),
+    url('https://images.unsplash.com/photo-1642285709726-f9eb035b034b?auto=format&fit=crop&w=2000&q=75');
+  background-size:cover; background-position:center; background-attachment:fixed;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  text-align:center;
+}
+.stat-item{ padding:26px 12px; border-left:1px solid rgba(255,255,255,.08); }
+.stat-item:first-child{ border-left:none; }
+.stat-num{
+  font-family:var(--ff-mono); font-weight:600;
+  font-size:clamp(2rem,4vw,3rem);
+  color:var(--gold-bright);
+}
+.stat-label{
+  margin-top:10px; font-size:.82rem; color:var(--text-secondary);
+  text-transform:uppercase; letter-spacing:.06em;
+}
+
+/* =====================================================================
+   11. PRODUCTS
+===================================================================== */
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.product-card{
+  background:var(--bg-tertiary);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  transition:transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.product-card:hover{ transform:translateY(-6px); border-color:var(--gold-line); }
+.product-media{ position:relative; height:190px; overflow:hidden; }
+.product-media img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+.product-card:hover .product-media img{ transform:scale(1.08); }
+.product-body{ padding:22px; }
+.product-body h3{ font-family:var(--ff-body); font-weight:600; font-size:1.02rem; }
+.product-body p{ font-size:.86rem; color:var(--text-secondary); margin:10px 0 16px; }
+.product-link{
+  font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+  color:var(--gold-bright); display:inline-flex; align-items:center; gap:8px;
+  transition:gap var(--dur-fast) var(--ease);
+}
+.product-link:hover{ gap:12px; }
+
+/* =====================================================================
+   12. SAFETY / WHY CHOOSE US
+===================================================================== */
+.safety-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.safety-media{ position:relative; border-radius:var(--radius-md); overflow:hidden; }
+.safety-media img{ width:100%; height:480px; object-fit:cover; }
+.safety-media::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 55%, rgba(10,11,13,.75));
+}
+.checklist{ margin-top:28px; display:flex; flex-direction:column; gap:16px; }
+.checklist li{ display:flex; align-items:flex-start; gap:14px; }
+.check-icon{
+  flex-shrink:0; width:26px; height:26px; border-radius:50%;
+  background:var(--gold-dim); color:var(--gold-bright);
+  display:flex; align-items:center; justify-content:center; font-size:.75rem;
+  transform:scale(.4); opacity:0;
+  transition:transform .45s var(--ease), opacity .45s var(--ease);
+}
+.reveal.in-view .check-icon{ transform:scale(1); opacity:1; }
+.checklist span{ color:var(--text-secondary); padding-top:3px; font-size:.95rem; }
+
+/* =====================================================================
+   13. GALLERY
+===================================================================== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:170px;
+  gap:14px;
+}
+.gallery-item{
+  position:relative; overflow:hidden; border-radius:var(--radius-sm);
+  cursor:pointer;
+}
+.gallery-item.wide{ grid-column:span 2; }
+.gallery-item.tall{ grid-row:span 2; }
+.gallery-item img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.gallery-item:hover img{ transform:scale(1.09); }
+.gallery-caption{
+  position:absolute; inset:auto 0 0 0; padding:14px 16px;
+  background:linear-gradient(0deg, rgba(0,0,0,.82), transparent);
+  font-size:.82rem; font-weight:500;
+  transform:translateY(8px); opacity:0;
+  transition:transform var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+}
+.gallery-item:hover .gallery-caption{ transform:translateY(0); opacity:1; }
+
+.lightbox{
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(6,7,8,.94);
+  display:flex; align-items:center; justify-content:center;
+  padding:32px;
+  opacity:0; visibility:hidden;
+  transition:opacity var(--dur) var(--ease);
+}
+.lightbox.open{ opacity:1; visibility:visible; }
+.lightbox img{ max-width:min(920px,92vw); max-height:82vh; border-radius:var(--radius-md); }
+.lightbox-close{
+  position:absolute; top:24px; right:28px;
+  width:44px; height:44px; border-radius:50%;
+  background:var(--bg-elevated); color:var(--text-primary);
+  display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+  border:1px solid rgba(255,255,255,.12);
+}
+.lightbox-close:hover{ color:var(--gold-bright); }
+
+/* =====================================================================
+   14. CONTACT
+===================================================================== */
+.contact-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:56px;
+}
+.contact-info-card{
+  background:var(--bg-tertiary);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius-md);
+  padding:34px;
+}
+.contact-info-card h3{ font-family:var(--ff-body); font-weight:600; font-size:1.1rem; margin-bottom:22px; }
+.info-row{ display:flex; gap:16px; padding:16px 0; border-top:1px solid rgba(255,255,255,.06); }
+.info-row:first-of-type{ border-top:none; }
+.info-row i{
+  width:38px; height:38px; flex-shrink:0; border-radius:var(--radius-sm);
+  background:var(--gold-dim); color:var(--gold-bright);
+  display:flex; align-items:center; justify-content:center;
+}
+.info-row strong{ display:block; font-size:.92rem; }
+.info-row span{ font-size:.85rem; color:var(--text-secondary); }
+
+.form-card{
+  background:var(--bg-tertiary);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius-md);
+  padding:38px;
+}
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.field{ margin-bottom:20px; }
+.field label{
+  display:block; font-size:.8rem; color:var(--text-secondary);
+  margin-bottom:8px; text-transform:uppercase; letter-spacing:.05em;
+}
+.field input, .field select, .field textarea{
+  width:100%; background:var(--bg-secondary);
+  border:1px solid rgba(255,255,255,.1);
+  color:var(--text-primary); padding:13px 14px;
+  border-radius:var(--radius-sm);
+  transition:border-color var(--dur-fast) var(--ease);
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  border-color:var(--gold); outline:none;
+}
+.field textarea{ resize:vertical; min-height:110px; }
+.field-error{ color:var(--danger); font-size:.78rem; margin-top:6px; display:none; }
+.field.has-error input, .field.has-error select, .field.has-error textarea{ border-color:var(--danger); }
+.field.has-error .field-error{ display:block; }
+
+.form-success{
+  display:none; text-align:center; padding:40px 10px;
+}
+.form-success.show{ display:block; }
+.form-success i{ font-size:2.6rem; color:var(--success); margin-bottom:16px; }
+.form-success h3{ font-family:var(--ff-body); font-weight:600; margin-bottom:8px; }
+.form-success p{ color:var(--text-secondary); font-size:.92rem; }
+
+/* =====================================================================
+   15. FOOTER
+===================================================================== */
+footer{ background:var(--bg-secondary); border-top:1px solid rgba(255,255,255,.06); padding:72px 0 28px; }
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:48px;
+}
+.footer-brand p{ color:var(--text-secondary); font-size:.9rem; margin-top:16px; max-width:280px; }
+.social-row{ display:flex; gap:10px; margin-top:22px; }
+.social-row a{
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.social-row a:hover{ border-color:var(--gold); color:var(--gold-bright); transform:translateY(-3px); }
+.footer-col h4{
+  font-family:var(--ff-body); font-size:.88rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.06em; margin-bottom:20px; color:var(--text-primary);
+}
+.footer-col ul{ display:flex; flex-direction:column; gap:12px; }
+.footer-col a{ color:var(--text-secondary); font-size:.9rem; transition:color var(--dur-fast) var(--ease); }
+.footer-col a:hover{ color:var(--gold-bright); }
+.footer-col address{ font-style:normal; color:var(--text-secondary); font-size:.9rem; line-height:1.8; }
+.footer-bottom{
+  margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,.06);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  font-size:.8rem; color:var(--text-muted);
+}
+
+/* =====================================================================
+   16. FLOATING WHATSAPP BUTTON
+===================================================================== */
+.whatsapp-fab{
+  position:fixed; right:22px; bottom:22px; z-index:900;
+  width:60px; height:60px; border-radius:50%;
+  background:#25D366; color:#fff; font-size:1.6rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,.6);
+  transition:transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.whatsapp-fab:hover{ transform:translateY(-4px) scale(1.05); box-shadow:0 16px 34px -8px rgba(37,211,102,.75); }
+.whatsapp-fab::before{
+  content:''; position:absolute; inset:0; border-radius:50%;
+  border:2px solid #25D366; opacity:.55;
+  animation:pulseRing 2.4s ease-out infinite;
+}
+@keyframes pulseRing{
+  0%{ transform:scale(1); opacity:.55; }
+  100%{ transform:scale(1.6); opacity:0; }
+}
+
+/* =====================================================================
+   17. AI CHATBOT WIDGET
+===================================================================== */
+.chat-fab{
+  position:fixed; right:22px; bottom:94px; z-index:900;
+  width:60px; height:60px; border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  color:#181103; font-size:1.4rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 28px -8px rgba(201,151,76,.6);
+  transition:transform var(--dur-fast) var(--ease);
+}
+.chat-fab:hover{ transform:translateY(-4px) scale(1.05); }
+
+.chat-panel{
+  position:fixed; right:22px; bottom:166px; z-index:950;
+  width:360px; max-width:calc(100vw - 32px);
+  height:480px; max-height:70vh;
+  background:var(--bg-tertiary);
+  border:1px solid var(--gold-line);
+  border-radius:14px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transform:translateY(16px) scale(.97); opacity:0; visibility:hidden;
+  transition:transform var(--dur) var(--ease), opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+}
+.chat-panel.open{ transform:translateY(0) scale(1); opacity:1; visibility:visible; }
+.chat-head{
+  background:linear-gradient(135deg, var(--bg-elevated), var(--bg-tertiary));
+  padding:16px 18px; display:flex; align-items:center; gap:12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.chat-head .dot{ width:9px; height:9px; border-radius:50%; background:var(--success); box-shadow:0 0 8px var(--success); }
+.chat-head strong{ font-size:.95rem; }
+.chat-head span{ display:block; font-size:.72rem; color:var(--text-secondary); }
+.chat-close{ margin-left:auto; font-size:1.1rem; color:var(--text-secondary); }
+.chat-close:hover{ color:var(--gold-bright); }
+
+.chat-body{ flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:12px; }
+.chat-msg{ max-width:82%; padding:11px 14px; border-radius:12px; font-size:.87rem; line-height:1.5; }
+.chat-msg.bot{ background:var(--bg-elevated); border-bottom-left-radius:3px; align-self:flex-start; }
+.chat-msg.user{ background:var(--gold-dim); color:var(--text-primary); border:1px solid var(--gold-line); border-bottom-right-radius:3px; align-self:flex-end; }
+.chat-suggestions{ display:flex; flex-direction:column; gap:8px; margin-top:4px; }
+.chat-suggestions button{
+  text-align:left; font-size:.8rem; padding:9px 12px;
+  border:1px solid rgba(255,255,255,.12); border-radius:8px;
+  color:var(--text-secondary); transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.chat-suggestions button:hover{ border-color:var(--gold); color:var(--gold-bright); }
+
+.chat-input-row{
+  display:flex; gap:10px; padding:14px; border-top:1px solid rgba(255,255,255,.08);
+}
+.chat-input-row input{
+  flex:1; background:var(--bg-secondary); border:1px solid rgba(255,255,255,.1);
+  color:var(--text-primary); padding:11px 13px; border-radius:8px;
+}
+.chat-input-row input:focus{ outline:none; border-color:var(--gold); }
+.chat-send{
+  width:42px; height:42px; border-radius:8px; flex-shrink:0;
+  background:var(--gold); color:#181103; display:flex; align-items:center; justify-content:center;
+}
+.chat-send:hover{ background:var(--gold-bright); }
+
+.typing-dots{ display:inline-flex; gap:4px; }
+.typing-dots span{ width:6px; height:6px; border-radius:50%; background:var(--text-muted); animation:typingBounce 1.1s infinite ease-in-out; }
+.typing-dots span:nth-child(2){ animation-delay:.15s; }
+.typing-dots span:nth-child(3){ animation-delay:.3s; }
+@keyframes typingBounce{ 0%,60%,100%{ transform:translateY(0); opacity:.5;} 30%{ transform:translateY(-4px); opacity:1;} }
+
+/* =====================================================================
+   18. RESPONSIVE
+===================================================================== */
+@media (max-width:1024px){
+  .about-grid, .safety-grid{ grid-template-columns:1fr; }
+  .about-media img, .safety-media img{ height:340px; }
+  .services-grid{ grid-template-columns:repeat(2,1fr); }
+  .products-grid{ grid-template-columns:repeat(2,1fr); }
+  .stats-grid{ grid-template-columns:repeat(2,1fr); }
+  .stat-item:nth-child(3){ border-left:none; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .gallery-grid{ grid-template-columns:repeat(3,1fr); grid-auto-rows:150px; }
+}
+
+@media (max-width:860px){
+  .nav-links{
+    position:fixed; inset:0 0 0 auto; width:min(320px,84vw); height:100vh;
+    background:var(--bg-secondary); border-left:1px solid var(--gold-line);
+    flex-direction:column; align-items:flex-start; justify-content:flex-start;
+    padding:100px 32px 32px; gap:26px;
+    transform:translateX(100%); transition:transform var(--dur) var(--ease);
+    z-index:1050;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ font-size:1.05rem; }
+  .nav-cta .btn-outline{ display:none; }
+  .hamburger{ display:block; }
+  .nav-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1040;
+    opacity:0; visibility:hidden; transition:opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+  }
+  .nav-overlay.open{ opacity:1; visibility:visible; }
+
+  .hero-meta{ gap:26px; }
+  .form-row{ grid-template-columns:1fr; }
+  .chat-panel{ right:16px; bottom:150px; width:calc(100vw - 32px); }
+  .whatsapp-fab{ right:16px; bottom:16px; width:54px; height:54px; font-size:1.4rem; }
+  .chat-fab{ right:16px; bottom:82px; width:54px; height:54px; font-size:1.25rem; }
+}
+
+@media (max-width:640px){
+  section{ padding:72px 0; }
+  .services-grid, .products-grid{ grid-template-columns:1fr; }
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:140px; }
+  .gallery-item.wide{ grid-column:span 2; }
+  .stats-grid{ grid-template-columns:1fr 1fr; }
+  .footer-grid{ grid-template-columns:1fr; gap:36px; }
+  .hero-title{ font-size:2.1rem; }
+  .badge-float{ left:12px; bottom:-18px; padding:14px 18px; }
+  .feature-grid{ grid-template-columns:1fr; }
+}
+
+@media (max-width:380px){
+  .container{ padding:0 16px; }
+  .hero-actions .btn{ width:100%; }
+  .hero-meta{ gap:18px; }
+  .stats-grid{ grid-template-columns:1fr; }
+  .stat-item{ border-left:none; border-top:1px solid rgba(255,255,255,.08); }
+  .stat-item:first-child{ border-top:none; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- =====================================================================
+     NAVIGATION
+===================================================================== -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand" aria-label="Ironvale Coal & Minerals home">
+      <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="100" height="100" rx="18" fill="#14161A" stroke="#C9974C" stroke-width="2"/>
+        <path d="M22 70 L40 30 L52 54 L64 24 L82 70 Z" fill="#C9974C"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">IRON<span>VALE</span></span>
+        <span class="sub">Coal &amp; Minerals</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#safety">Safety</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline btn-sm">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<main id="main">
+
+<!-- =====================================================================
+     HERO
+===================================================================== -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <svg class="hero-seam" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+    <path id="seamPath" d="M-50,620 C 250,560 380,700 620,560 C 860,420 980,540 1250,460 C 1400,415 1470,430 1520,400"
+      fill="none" stroke="#C9974C" stroke-width="1.4" stroke-dasharray="2200" stroke-dashoffset="2200" opacity="0.7"/>
+  </svg>
+
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">Est. 2004 &middot; Trusted Coal &amp; Mining Partner</span>
+      <h1 class="hero-title">Powering Industries With <em>Reliable Energy.</em></h1>
+      <p class="hero-desc">Ironvale Coal &amp; Minerals extracts, processes and delivers premium thermal, industrial and metallurgical coal — backed by two decades of safety-first operations and on-time logistics across every partner site.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-gold">Explore Products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a href="#contact" class="btn btn-outline">Request a Quote</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>20+</strong><span>Years Experience</span></div>
+        <div><strong>500+</strong><span>Projects Delivered</span></div>
+        <div><strong>50+</strong><span>Industrial Partners</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- =====================================================================
+     ABOUT
+===================================================================== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <img src="https://images.unsplash.com/photo-1523848309072-c199db53f137?auto=format&fit=crop&w=900&q=80"
+             alt="Heavy excavators operating at an open coal mining site" loading="lazy" decoding="async">
+        <div class="badge-float">
+          <strong>20+</strong>
+          <span>Years Experience</span>
+        </div>
+      </div>
+
+      <div class="about-text reveal reveal-delay-1">
+        <span class="eyebrow">About Ironvale</span>
+        <h2 class="section-title">Built On Depth Of <em>Experience.</em></h2>
+        <p>For over two decades, Ironvale Coal &amp; Minerals has supplied thermal, industrial and metallurgical coal to power plants, manufacturers and heavy industry across the region. Every seam we mine, every tonne we move, is handled under strict safety and quality protocols.</p>
+        <p>Our integrated model — mining, processing, transportation and supply — means fewer handoffs, tighter quality control, and delivery timelines our partners can build their own operations around.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+            <h4>Quality Control</h4>
+            <p>Lab-tested coal grades at every stage of processing.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-earth-asia" aria-hidden="true"></i>
+            <h4>Global Supply</h4>
+            <p>Reliable export and domestic supply networks.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-helmet-safety" aria-hidden="true"></i>
+            <h4>Safe Operations</h4>
+            <p>Zero-compromise safety standards on every site.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+            <h4>Expert Team</h4>
+            <p>Certified engineers and site operations specialists.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="seam"></div>
+
+<!-- =====================================================================
+     SERVICES
+===================================================================== -->
+<section id="services" class="bg-alt">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="section-title">End-To-End <em>Coal Solutions.</em></h2>
+      <p class="section-lede">From extraction to final-mile delivery, we manage every stage of the coal supply chain in-house.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <span class="service-index">Seam 01</span>
+        <div class="service-icon"><i class="fa-solid fa-mound" aria-hidden="true"></i></div>
+        <h3>Coal Mining</h3>
+        <p>Open-pit and underground extraction using modern, safety-certified heavy machinery.</p>
+      </article>
+
+      <article class="service-card reveal reveal-delay-1">
+        <span class="service-index">Seam 02</span>
+        <div class="service-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></div>
+        <h3>Coal Processing</h3>
+        <p>Washing, crushing and grading to deliver consistent, high-calorific coal grades.</p>
+      </article>
+
+      <article class="service-card reveal reveal-delay-2">
+        <span class="service-index">Seam 03</span>
+        <div class="service-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+        <h3>Coal Transportation</h3>
+        <p>Rail, road and port logistics with real-time shipment tracking and on-time delivery.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="service-index">Seam 04</span>
+        <div class="service-icon"><i class="fa-solid fa-warehouse" aria-hidden="true"></i></div>
+        <h3>Logistics &amp; Supply</h3>
+        <p>Warehousing and scheduled bulk supply contracts tailored to your production cycle.</p>
+      </article>
+
+      <article class="service-card reveal reveal-delay-1">
+        <span class="service-index">Seam 05</span>
+        <div class="service-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
+        <h3>Industrial Coal Solutions</h3>
+        <p>Custom coal blends engineered for power plants, cement kilns and steel manufacturing.</p>
+      </article>
+
+      <article class="service-card reveal reveal-delay-2">
+        <span class="service-index">Seam 06</span>
+        <div class="service-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+        <h3>Custom Business Requirements</h3>
+        <p>Flexible contracts and specifications built around your operational needs.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     STATISTICS
+===================================================================== -->
+<section class="stats-section" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="20" data-suffix="+">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num" data-target="500" data-suffix="+">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num" data-target="50" data-suffix="+">0</div>
+        <div class="stat-label">Industrial Partners</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label">Quality Commitment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PRODUCTS
+===================================================================== -->
+<section id="products">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Our Products</span>
+      <h2 class="section-title">Coal Grades For <em>Every Industry.</em></h2>
+      <p class="section-lede">Consistent quality across every grade we mine, process and supply.</p>
+    </div>
+
+    <div class="products-grid">
+      <article class="product-card reveal">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1703359905472-069a5f573927?auto=format&fit=crop&w=600&q=80" alt="Close-up of thermal coal lumps" loading="lazy" decoding="async">
+        </div>
+        <div class="product-body">
+          <h3>Thermal Coal</h3>
+          <p>High-calorific coal optimized for power generation and boiler fuel.</p>
+          <button class="product-link" data-product="Thermal Coal">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-delay-1">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1523848309072-c199db53f137?auto=format&fit=crop&w=600&q=80" alt="Industrial coal loading with heavy machinery" loading="lazy" decoding="async">
+        </div>
+        <div class="product-body">
+          <h3>Industrial Coal</h3>
+          <p>Reliable-grade coal for manufacturing, kilns and industrial furnaces.</p>
+          <button class="product-link" data-product="Industrial Coal">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-delay-2">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1649822825476-70af6471d30f?auto=format&fit=crop&w=600&q=80" alt="Open pit mine producing metallurgical coal" loading="lazy" decoding="async">
+        </div>
+        <div class="product-body">
+          <h3>Metallurgical Coal</h3>
+          <p>Low-ash coking coal engineered for steel and iron production.</p>
+          <button class="product-link" data-product="Metallurgical Coal">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-delay-3">
+        <div class="product-media">
+          <img src="https://images.unsplash.com/photo-1565947256685-e8089e88ddda?auto=format&fit=crop&w=600&q=80" alt="Mining truck used for custom coal supply transport" loading="lazy" decoding="async">
+        </div>
+        <div class="product-body">
+          <h3>Custom Coal Supply</h3>
+          <p>Blended specifications and volumes built around your contract.</p>
+          <button class="product-link" data-product="Custom Coal Supply">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="seam"></div>
+
+<!-- =====================================================================
+     SAFETY / WHY CHOOSE US
+===================================================================== -->
+<section id="safety" class="bg-alt">
+  <div class="container">
+    <div class="safety-grid">
+      <div class="safety-media reveal">
+        <img src="https://images.unsplash.com/photo-1552879890-3a06dd3a06c2?auto=format&fit=crop&w=900&q=80" alt="Rack of safety helmets used on Ironvale mining sites" loading="lazy" decoding="async">
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 class="section-title">Safety Is Never <em>Negotiable.</em></h2>
+        <p class="section-lede">Every site, every shift, every shipment — held to the same uncompromising standard.</p>
+        <ul class="checklist">
+          <li class="reveal"><span class="check-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span>Strict safety standards enforced across all sites</span></li>
+          <li class="reveal reveal-delay-1"><span class="check-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span>Continuous quality monitoring at every processing stage</span></li>
+          <li class="reveal reveal-delay-2"><span class="check-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span>Reliable, tracked transportation networks</span></li>
+          <li class="reveal reveal-delay-3"><span class="check-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span>Experienced, certified workforce</span></li>
+          <li class="reveal reveal-delay-4"><span class="check-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span>Transparent business process from quote to delivery</span></li>
+          <li class="reveal"><span class="check-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span><span>On-time delivery, backed by real-time tracking</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GALLERY
+===================================================================== -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Gallery</span>
+      <h2 class="section-title">Inside Our <em>Operations.</em></h2>
+      <p class="section-lede">A look at the sites, machinery and people behind every delivery.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item wide tall reveal" data-full="https://images.unsplash.com/photo-1649822825476-70af6471d30f?auto=format&fit=crop&w=1400&q=85" data-caption="Open-pit coal mining site">
+        <img src="https://images.unsplash.com/photo-1649822825476-70af6471d30f?auto=format&fit=crop&w=700&q=75" alt="Aerial view of an open-pit coal mining site" loading="lazy" decoding="async">
+        <div class="gallery-caption">Open-Pit Coal Mining</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-full="https://images.unsplash.com/photo-1523848309072-c199db53f137?auto=format&fit=crop&w=1400&q=85" data-caption="Heavy machinery in operation">
+        <img src="https://images.unsplash.com/photo-1523848309072-c199db53f137?auto=format&fit=crop&w=500&q=75" alt="Excavators and heavy machinery at a mining area" loading="lazy" decoding="async">
+        <div class="gallery-caption">Heavy Machinery Fleet</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-full="https://images.unsplash.com/photo-1565947256685-e8089e88ddda?auto=format&fit=crop&w=1400&q=85" data-caption="Coal transportation truck">
+        <img src="https://images.unsplash.com/photo-1565947256685-e8089e88ddda?auto=format&fit=crop&w=500&q=75" alt="Large yellow dump truck used for coal transportation" loading="lazy" decoding="async">
+        <div class="gallery-caption">Coal Transportation</div>
+      </div>
+      <div class="gallery-item wide reveal reveal-delay-3" data-full="https://images.unsplash.com/photo-1642285709726-f9eb035b034b?auto=format&fit=crop&w=1400&q=85" data-caption="Industrial processing facility">
+        <img src="https://images.unsplash.com/photo-1642285709726-f9eb035b034b?auto=format&fit=crop&w=700&q=75" alt="Industrial coal processing facility lit up at night" loading="lazy" decoding="async">
+        <div class="gallery-caption">Industrial Facility</div>
+      </div>
+      <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1703359905472-069a5f573927?auto=format&fit=crop&w=1400&q=85" data-caption="Processed coal stockpile">
+        <img src="https://images.unsplash.com/photo-1703359905472-069a5f573927?auto=format&fit=crop&w=500&q=75" alt="Close-up of a processed coal stockpile" loading="lazy" decoding="async">
+        <div class="gallery-caption">Coal Stockpile</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-full="https://images.unsplash.com/photo-1552879890-3a06dd3a06c2?auto=format&fit=crop&w=1400&q=85" data-caption="Site safety equipment">
+        <img src="https://images.unsplash.com/photo-1552879890-3a06dd3a06c2?auto=format&fit=crop&w=500&q=75" alt="Rack of yellow safety helmets on site" loading="lazy" decoding="async">
+        <div class="gallery-caption">Site Safety Standards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="seam"></div>
+
+<!-- =====================================================================
+     CONTACT
+===================================================================== -->
+<section id="contact" class="bg-alt">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="section-title">Request Your <em>Custom Quote.</em></h2>
+      <p class="section-lede">Tell us what you need — our team responds within one business day.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info-card reveal">
+        <h3>Contact Information</h3>
+        <div class="info-row">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <div><strong id="infoPhone">+1 (555) 219-4471</strong><span>Mon–Sat, 8am–6pm</span></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <div><strong id="infoEmail">sales@ironvalecoal.com</strong><span>We reply within 24 hours</span></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <div><strong id="infoAddress">4021 Industrial Loop, Charleston, WV</strong><span>Head office &amp; logistics hub</span></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <div><strong id="infoHours">Mon – Sat: 8:00 AM – 6:00 PM</strong><span>Sunday: Emergency dispatch only</span></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal reveal-delay-1">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              <span class="field-error">Please enter your full name.</span>
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="field-error">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              <span class="field-error">Please enter a valid phone number.</span>
+            </div>
+            <div class="field">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" autocomplete="organization">
+            </div>
+          </div>
+          <div class="field">
+            <label for="requirement">Service / Product Requirement</label>
+            <select id="requirement" name="requirement" required>
+              <option value="">Select an option</option>
+              <option>Thermal Coal</option>
+              <option>Industrial Coal</option>
+              <option>Metallurgical Coal</option>
+              <option>Custom Coal Supply</option>
+              <option>Coal Transportation &amp; Logistics</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error">Please select a requirement.</span>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <span class="field-error">Please tell us a little about your requirement.</span>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block" id="submitBtn">
+            <span id="submitLabel">Send Message</span>
+          </button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <h3>Message Sent Successfully</h3>
+          <p>Thank you for reaching out. A member of our team will contact you within one business day.</p>
+          <button class="btn btn-outline btn-sm" id="sendAnother" style="margin-top:20px;">Send Another Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+===================================================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand" aria-label="Ironvale Coal & Minerals home">
+          <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="100" height="100" rx="18" fill="#1B1E23" stroke="#C9974C" stroke-width="2"/>
+            <path d="M22 70 L40 30 L52 54 L64 24 L82 70 Z" fill="#C9974C"/>
+          </svg>
+          <span class="brand-text">
+            <span class="name">IRON<span>VALE</span></span>
+            <span class="sub">Coal &amp; Minerals</span>
+          </span>
+        </a>
+        <p>Two decades of safe, reliable coal mining, processing and supply for industrial partners nationwide.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Ironvale on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Ironvale on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Ironvale on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Ironvale on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Coal Mining</a></li>
+          <li><a href="#services">Coal Processing</a></li>
+          <li><a href="#services">Transportation</a></li>
+          <li><a href="#services">Logistics &amp; Supply</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          4021 Industrial Loop<br>
+          Charleston, WV 25301<br>
+          +1 (555) 219-4471<br>
+          sales@ironvalecoal.com
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> Ironvale Coal &amp; Minerals. All Rights Reserved.</span>
+      <span>Designed for safe, reliable industrial partnership.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================================
+     LIGHTBOX (gallery)
+===================================================================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image preview"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- =====================================================================
+     FLOATING WHATSAPP BUTTON
+===================================================================== -->
+<a id="whatsappFab" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- =====================================================================
+     AI CHATBOT WIDGET
+===================================================================== -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat assistant" aria-expanded="false" aria-controls="chatPanel">
+  <i class="fa-solid fa-comments" aria-hidden="true"></i>
+</button>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-label="Ironvale chat assistant">
+  <div class="chat-head">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <strong>Ironvale Assistant</strong>
+      <span>Typically replies instantly</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <form class="chat-input-row" id="chatForm">
+    <label for="chatInput" class="sr-only" style="position:absolute;left:-9999px;">Type your message</label>
+    <input type="text" id="chatInput" placeholder="Type your message…" autocomplete="off">
+    <button type="submit" class="chat-send" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+  </form>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* =====================================================================
+   COMPANY CONFIGURATION — edit everything here to re-brand the site
+===================================================================== */
+const CONFIG = {
+  companyName: "Ironvale Coal & Minerals",
+  phone: "+1 (555) 219-4471",
+  email: "sales@ironvalecoal.com",
+  address: "4021 Industrial Loop, Charleston, WV 25301",
+  hours: "Mon – Sat: 8:00 AM – 6:00 PM",
+  // EDIT THIS: WhatsApp number in international format, no + or spaces (e.g. 15552194471)
+  whatsappNumber: "15552194471",
+  whatsappMessage: "Hello, I am interested in your coal and mining services. Please provide more information."
+};
+
+/* Populate contact-info text from CONFIG so it only needs editing once */
+document.getElementById('infoPhone').textContent = CONFIG.phone;
+document.getElementById('infoEmail').textContent = CONFIG.email;
+document.getElementById('infoAddress').textContent = CONFIG.address;
+document.getElementById('infoHours').textContent = CONFIG.hours;
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* WhatsApp floating button link */
+const whatsappFab = document.getElementById('whatsappFab');
+whatsappFab.href = "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(CONFIG.whatsappMessage);
+
+/* =====================================================================
+   NAVBAR: scroll state + mobile menu
+===================================================================== */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function(){
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive:true });
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+
+function openMenu(){
+  navLinks.classList.add('open');
+  navOverlay.classList.add('open');
+  hamburger.setAttribute('aria-expanded','true');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu(){
+  navLinks.classList.remove('open');
+  navOverlay.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}
+hamburger.addEventListener('click', function(){
+  navLinks.classList.contains('open') ? closeMenu() : openMenu();
+});
+navOverlay.addEventListener('click', closeMenu);
+navLinks.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', closeMenu);
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeMenu();
+});
+
+/* =====================================================================
+   SUBTLE HERO PARALLAX (respects prefers-reduced-motion)
+===================================================================== */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const heroBg = document.getElementById('heroBg');
+if(!prefersReduced){
+  window.addEventListener('scroll', function(){
+    const y = window.scrollY;
+    if(y < window.innerHeight){
+      heroBg.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+    }
+  }, { passive:true });
+}
+
+/* Draw the hero "seam" line once on load */
+window.addEventListener('load', function(){
+  const seamPath = document.getElementById('seamPath');
+  if(seamPath && !prefersReduced){
+    seamPath.style.transition = 'stroke-dashoffset 2.4s ease-out';
+    requestAnimationFrame(function(){ seamPath.style.strokeDashoffset = '0'; });
+  } else if(seamPath){
+    seamPath.style.strokeDashoffset = '0';
+  }
+});
+
+/* =====================================================================
+   SCROLL REVEAL (IntersectionObserver, triggers once)
+===================================================================== */
+const revealItems = document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const revealObserver = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+  revealItems.forEach(function(item){ revealObserver.observe(item); });
+} else {
+  revealItems.forEach(function(item){ item.classList.add('in-view'); });
+}
+
+/* =====================================================================
+   ANIMATED STAT COUNTERS (once, on viewport entry)
+===================================================================== */
+function animateCount(el){
+  const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+  const suffix = el.getAttribute('data-suffix') || '';
+  const duration = 1600;
+  const start = performance.now();
+
+  function tick(now){
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); /* ease-out cubic */
+    const value = Math.floor(eased * target);
+    el.textContent = value + suffix;
+    if(progress < 1){
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = target + suffix;
+    }
+  }
+  if(prefersReduced){
+    el.textContent = target + suffix;
+  } else {
+    requestAnimationFrame(tick);
+  }
+}
+
+const statNums = document.querySelectorAll('.stat-num');
+if('IntersectionObserver' in window && statNums.length){
+  const statObserver = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        animateCount(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.4 });
+  statNums.forEach(function(el){ statObserver.observe(el); });
+} else {
+  statNums.forEach(animateCount);
+}
+
+/* =====================================================================
+   PRODUCT "LEARN MORE" -> scroll to contact & preselect requirement
+===================================================================== */
+document.querySelectorAll('.product-link').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    const product = btn.getAttribute('data-product');
+    const select = document.getElementById('requirement');
+    if(select){
+      Array.from(select.options).forEach(function(opt){
+        if(opt.value === product) select.value = product;
+      });
+    }
+    document.getElementById('contact').scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
+  });
+});
+
+/* =====================================================================
+   GALLERY LIGHTBOX
+===================================================================== */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+document.querySelectorAll('.gallery-item').forEach(function(item){
+  item.addEventListener('click', function(){
+    lightboxImg.src = item.getAttribute('data-full');
+    lightboxImg.alt = item.getAttribute('data-caption') || '';
+    lightbox.classList.add('open');
+  });
+  item.setAttribute('tabindex','0');
+  item.setAttribute('role','button');
+  item.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); item.click(); }
+  });
+});
+function closeLightbox(){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+/* =====================================================================
+   CONTACT FORM VALIDATION + SUCCESS STATE
+===================================================================== */
+const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+const submitBtn = document.getElementById('submitBtn');
+const submitLabel = document.getElementById('submitLabel');
+
+function validateField(field, condition){
+  field.classList.toggle('has-error', !condition);
+  return condition;
+}
+
+contactForm.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const fullName = document.getElementById('fullName');
+  const email = document.getElementById('email');
+  const phone = document.getElementById('phone');
+  const requirement = document.getElementById('requirement');
+  const message = document.getElementById('message');
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[0-9+\-\s()]{7,}$/;
+
+  let valid = true;
+  valid = validateField(fullName.closest('.field'), fullName.value.trim().length > 1) && valid;
+  valid = validateField(email.closest('.field'), emailRegex.test(email.value.trim())) && valid;
+  valid = validateField(phone.closest('.field'), phoneRegex.test(phone.value.trim())) && valid;
+  valid = validateField(requirement.closest('.field'), requirement.value !== '') && valid;
+  valid = validateField(message.closest('.field'), message.value.trim().length > 4) && valid;
+
+  if(!valid){
+    const firstError = contactForm.querySelector('.has-error');
+    if(firstError) firstError.querySelector('input,select,textarea').focus();
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitLabel.textContent = 'Sending…';
+
+  /* Simulated submit — replace with a real fetch() to your backend/API endpoint */
+  setTimeout(function(){
+    contactForm.style.display = 'none';
+    formSuccess.classList.add('show');
+    submitBtn.disabled = false;
+    submitLabel.textContent = 'Send Message';
+  }, 900);
+});
+
+document.getElementById('sendAnother').addEventListener('click', function(){
+  contactForm.reset();
+  contactForm.querySelectorAll('.field').forEach(function(f){ f.classList.remove('has-error'); });
+  formSuccess.classList.remove('show');
+  contactForm.style.display = 'block';
+});
+
+/* =====================================================================
+   AI CHATBOT (frontend keyword-based demo)
+   ---------------------------------------------------------------------
+   To connect a real AI backend (OpenAI, Gemini, etc.) later:
+   1. Replace the getBotResponse() function below with a fetch() call to
+      YOUR OWN backend endpoint, e.g. POST /api/chat { message }.
+   2. Your backend holds the secret API key and forwards the request to
+      the AI provider — NEVER put API keys in this frontend file.
+===================================================================== */
+const chatFab = document.getElementById('chatFab');
+const chatPanel = document.getElementById('chatPanel');
+const chatClose = document.getElementById('chatClose');
+const chatBody = document.getElementById('chatBody');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+
+const suggestedQuestions = [
+  "What coal products do you provide?",
+  "How can I request a quote?",
+  "What are your delivery areas?",
+  "How can I contact your team?",
+  
+];
+
+let chatInitialized = false;
+
+function openChat(){
+  chatPanel.classList.add('open');
+  chatFab.setAttribute('aria-expanded','true');
+  if(!chatInitialized){
+    addBotMessage("Hi there! 👋 I'm the Ironvale virtual assistant. Ask me about our coal products, quotes, delivery areas, or how to reach our team.");
+    addSuggestions();
+    chatInitialized = true;
+  }
+  chatInput.focus();
+}
+function closeChat(){
+  chatPanel.classList.remove('open');
+  chatFab.setAttribute('aria-expanded','false');
+}
+chatFab.addEventListener('click', function(){
+  chatPanel.classList.contains('open') ? closeChat() : openChat();
+});
+chatClose.addEventListener('click', closeChat);
+
+function scrollChatToBottom(){
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addUserMessage(text){
+  const div = document.createElement('div');
+  div.className = 'chat-msg user';
+  div.textContent = text;
+  chatBody.appendChild(div);
+  scrollChatToBottom();
+}
+
+function addBotMessage(text){
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.textContent = text;
+  chatBody.appendChild(div);
+  scrollChatToBottom();
+}
+
+function addSuggestions(){
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-suggestions';
+  suggestedQuestions.forEach(function(q){
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = q;
+    b.addEventListener('click', function(){ handleUserInput(q); });
+    wrap.appendChild(b);
+  });
+  chatBody.appendChild(wrap);
+  scrollChatToBottom();
+}
+
+function showTyping(){
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot typing-indicator';
+  div.innerHTML = '<span class="typing-dots"><span></span><span></span><span></span></span>';
+  chatBody.appendChild(div);
+  scrollChatToBottom();
+  return div;
+}
+
+/* Simple keyword-based response engine */
+function getBotResponse(raw){
+  const msg = raw.toLowerCase();
+
+  if(msg.includes('product') || msg.includes('coal type') || msg.includes('grade')){
+    return "We supply four main grades: Thermal Coal, Industrial Coal, Metallurgical Coal, and Custom Coal Supply blends. You can see full details in our Products section above.";
+  }
+  if(msg.includes('quote') || msg.includes('price') || msg.includes('cost')){
+    return "You can request a quote by filling out the form in our Contact section, or call us directly at " + CONFIG.phone + ". Our team responds within one business day.";
+  }
+  if(msg.includes('deliver') || msg.includes('area') || msg.includes('ship') || msg.includes('transport')){
+    return "We manage rail, road and port logistics with real-time tracking, and currently serve industrial partners across the region. Share your location in the contact form and we'll confirm delivery timelines.";
+  }
+  if(msg.includes('contact') || msg.includes('phone') || msg.includes('email') || msg.includes('reach')){
+    return "You can reach our team at " + CONFIG.phone + ", email us at " + CONFIG.email + ", or use the WhatsApp button in the corner for a quick chat.";
+  }
+  if(msg.includes('safety')){
+    return "Safety is core to every operation — strict site standards, certified workforce, and continuous quality monitoring. See our Safety section for the full list.";
+  }
+  if(msg.includes('hello') || msg.includes('hi') || msg.includes('hey')){
+    return "Hello! How can I help you with our coal products or services today?";
+  }
+  if(msg.includes('thank')){
+    return "You're welcome! Let us know if there's anything else we can help with.";
+  }
+  return "Thanks for your message! For detailed help, please use the contact form below or reach our team directly at " + CONFIG.phone + ".";
+}
+
+function handleUserInput(text){
+  if(!text.trim()) return;
+  addUserMessage(text);
+  chatInput.value = '';
+  const typingEl = showTyping();
+  setTimeout(function(){
+    typingEl.remove();
+    addBotMessage(getBotResponse(text));
+  }, 650);
+}
+
+chatForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  handleUserInput(chatInput.value);
+});
+
+})();
+</script>
+</body>
+</html>
